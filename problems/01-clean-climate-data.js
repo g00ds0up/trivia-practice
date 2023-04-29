@@ -11,7 +11,17 @@ For example, it should return:
 [ "Amsterdam, Netherlands", "Athens, Greece", ...plus 103 more cities ]
 */
 
-// Your code here
+const listAllCitiesWithCountries = (array) => {
+    // return array.map(el => el.city + ', ' + el.country)
+    let newArr = [];
+    for (let i = 0; i < array.length; i++) {
+        const obj = array[i];
+        newArr.push(obj.city + ', ' + obj.country)
+    }
+    return newArr
+
+
+}
 
 
 /* 02. `listAllUsCities`
@@ -24,7 +34,19 @@ For example, it should return:
 [ 'Atlanta GA, United States', 'Austin TX, United States', ...plus more cities ]
 */
 
-// Your code here
+const listAllUsCities = (array) => {
+    // let newArr = [];
+    // for (let i = 0; i < array.length; i++) {
+    //     const obj = array[i];
+    //     if (obj.country === 'United States') {
+    //         newArr.push(obj.city + ', ' + obj.country)
+    //     }
+    // }
+    // return newArr;
+    const usCities = array.filter((obj) => obj.country === "United States");
+    // return listAllCitiesWithCountries(usCities);
+    return usCities.map(obj => obj.city + ", " + obj.country);
+}
 
 
 
@@ -38,7 +60,19 @@ was duplicated in id 3, 7, and 9, the returned object should look like:
 { 'Athens: [ 2 ], 'Mexico City': [ 3, 7, 9 ] }
 */
 
-// Your code here
+const findDuplicates = (arr) => {
+    const trackerObj = {};
+    arr.forEach(obj => {
+        const city = obj.city;
+        const id = obj.id;
+        if (trackerObj[city] === undefined) {
+            trackerObj[city] === [id];
+        } else {
+            trackerObj.city.push(id);
+        }
+    });
+    return trackerObj;
+}
 
 
 /* 04. `returnDuplicate` Which city object should be corrected in
@@ -54,7 +88,7 @@ HINT: Use documentation to research the `find()` method in JavaScript. You may,
 but do not have to, use this method to solve this problem.
 */
 
-// Your code here
+const returnDuplicate = () => {}
 
 /* 05. `correctDuplicate` Correct the city name of the duplicated city.
 
@@ -68,7 +102,7 @@ with id of 5 to 'Nice' and then return that object with the corrected city name.
 HINT: Can you use functions you have already written to help solve this problem?
 */
 
-// Your code here
+const correctDuplicate = () => {}
 
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
